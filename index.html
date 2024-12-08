@@ -126,7 +126,7 @@
       <p class="error-message" id="emailError">Please enter a valid email.</p>
 
       <input type="password" id="password" placeholder="Password" required>
-      <p class="error-message" id="passwordError">Password is required.</p>
+      <p class="error-message" id="passwordError">Password must be at least 8 characters long and contain at least one uppercase letter.</p>
 
       <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
       <p class="error-message" id="confirmPasswordError">Passwords do not match.</p>
@@ -181,7 +181,7 @@
         emailError.style.display = 'block';
         isValid = false;
       }
-      if (!password) {
+      if (!password || password.length < 8 || !/[A-Z]/.test(password)) {
         passwordError.style.display = 'block';
         isValid = false;
       }
